@@ -3,11 +3,14 @@ import java.net.Socket
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.PrintWriter
+import java.net.InetAddress
 import kotlin.concurrent.thread
 
 fun main() {
+
+    val address = "217.114.9.51"
     val port = 5000
-    val serverSocket = ServerSocket(port)
+    val serverSocket = ServerSocket(port, 50, InetAddress.getByName(address))
     println("Сервер сортировщика слов запущен на порту $port.")
 
     while (true) {
